@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.7 on win32)" generated="20240115 13:45:26.774" rpa="false" schemaversion="4">
+<suite id="s1" name="VerifySearchFunctionality" source="C:\Users\dominika.wojtulewicz\PycharmProjects\pythonProjectRobotFramework_1\Tests\eBay\VerifySearchFunctionality.robot">
+<test id="s1-t1" name="Verify basic search functionality for eBay" line="16">
+<kw name="Start TestCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240115 13:45:27.065" level="INFO">Opening browser 'chrome' to base url 'https://ebay.com'.</msg>
+<status status="PASS" starttime="20240115 13:45:27.065" endtime="20240115 13:45:32.873"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240115 13:45:32.873" endtime="20240115 13:45:33.005"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:27.064" endtime="20240115 13:45:33.006"/>
+</kw>
+<kw name="Input Search Text and Click Search" library="HeaderPage">
+<arg>mobile</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchTextBox}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:33.010" level="INFO">Typing text 'mobile' into text field 'xpath://*[@id='gh-ac']'.</msg>
+<status status="PASS" starttime="20240115 13:45:33.008" endtime="20240115 13:45:33.313"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<arg>[Return]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20240115 13:45:33.314" level="INFO">Sending key(s) ('[Return]',) to xpath://*[@id='gh-btn'] element.</msg>
+<msg timestamp="20240115 13:45:36.094" level="INFO">Sending keys [Return]</msg>
+<status status="PASS" starttime="20240115 13:45:33.313" endtime="20240115 13:45:36.433"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>results for mobile</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240115 13:45:36.617" level="INFO">Current page contains text 'results for mobile'.</msg>
+<status status="PASS" starttime="20240115 13:45:36.433" endtime="20240115 13:45:36.617"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:33.006" endtime="20240115 13:45:36.617"/>
+</kw>
+<kw name="Filter basic results by condition" library="eBay_UserDefinedKeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//span[@class='btn__cell']//span[contains(text(),'Condition')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:36.620" level="INFO">Clicking element '//span[@class='btn__cell']//span[contains(text(),'Condition')]'.</msg>
+<status status="PASS" starttime="20240115 13:45:36.619" endtime="20240115 13:45:37.081"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>//span[normalize-space()='New']</arg>
+<arg>[Return]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20240115 13:45:37.082" level="INFO">Sending key(s) ('[Return]',) to //span[normalize-space()='New'] element.</msg>
+<msg timestamp="20240115 13:45:39.577" level="INFO">Sending keys [Return]</msg>
+<status status="PASS" starttime="20240115 13:45:37.081" endtime="20240115 13:45:39.829"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240115 13:45:42.829" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240115 13:45:39.829" endtime="20240115 13:45:42.829"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:36.619" endtime="20240115 13:45:42.829"/>
+</kw>
+<kw name="Check if Logo Button Returns to main page" library="HeaderPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LogoButton}</arg>
+<arg>Return</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:42.831" level="INFO">Clicking element 'xpath://*[@id='gh-logo']' with Return.</msg>
+<status status="PASS" starttime="20240115 13:45:42.831" endtime="20240115 13:45:44.477"/>
+</kw>
+<kw name="Page Should Contain Link" library="SeleniumLibrary">
+<arg>https://www.ebay.com/</arg>
+<doc>Verifies link identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20240115 13:45:44.597" level="INFO">Current page contains link 'https://www.ebay.com/'.</msg>
+<status status="PASS" starttime="20240115 13:45:44.478" endtime="20240115 13:45:44.597"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:42.830" endtime="20240115 13:45:44.597"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240115 13:45:47.599" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240115 13:45:44.598" endtime="20240115 13:45:47.599"/>
+</kw>
+<kw name="Finish TestCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240115 13:45:47.601" endtime="20240115 13:45:50.188"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:47.600" endtime="20240115 13:45:50.188"/>
+</kw>
+<doc>This test case verifies the basic search</doc>
+<tag>Functional, search, basic</tag>
+<status status="PASS" starttime="20240115 13:45:27.063" endtime="20240115 13:45:50.190"/>
+</test>
+<test id="s1-t2" name="Verify advanced search functionality for eBay" line="26">
+<kw name="Start TestCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240115 13:45:50.197" level="INFO">Opening browser 'chrome' to base url 'https://ebay.com'.</msg>
+<status status="PASS" starttime="20240115 13:45:50.196" endtime="20240115 13:45:55.448"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240115 13:45:55.448" endtime="20240115 13:45:55.579"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:50.194" endtime="20240115 13:45:55.579"/>
+</kw>
+<kw name="Click Advanced Search Button" library="HeaderPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AdvancedSearchLink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:55.581" level="INFO">Clicking element 'xpath://*[@id='gh-as-a']'.</msg>
+<status status="PASS" starttime="20240115 13:45:55.581" endtime="20240115 13:45:56.594"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:55.580" endtime="20240115 13:45:56.594"/>
+</kw>
+<kw name="Advanced Search Form Input and Search" library="eBay_UserDefinedKeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="_nkw"]</arg>
+<arg>mobile</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:56.597" level="INFO">Typing text 'mobile' into text field '//*[@id="_nkw"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:56.596" endtime="20240115 13:45:56.859"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-4[0]-7[1]-_in_kw"]/option[3]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:56.861" level="INFO">Clicking element '//*[@id="s0-1-17-4[0]-7[1]-_in_kw"]/option[3]'.</msg>
+<status status="PASS" starttime="20240115 13:45:56.859" endtime="20240115 13:45:56.964"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="_ex_kw"]</arg>
+<arg>iphone</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:56.965" level="INFO">Typing text 'iphone' into text field '//*[@id="_ex_kw"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:56.964" endtime="20240115 13:45:57.156"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-5[2]-@range-comp[]-@range-textbox[]-textbox"]</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.157" level="INFO">Typing text '10' into text field '//*[@id="s0-1-17-5[2]-@range-comp[]-@range-textbox[]-textbox"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.157" endtime="20240115 13:45:57.355"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-5[2]-@range-comp[]-@range-textbox[]_1-textbox"]</arg>
+<arg>99</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.356" level="INFO">Typing text '99' into text field '//*[@id="s0-1-17-5[2]-@range-comp[]-@range-textbox[]_1-textbox"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.355" endtime="20240115 13:45:57.541"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-6[3]-[2]-LH_BIN"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.542" level="INFO">Clicking element '//*[@id="s0-1-17-6[3]-[2]-LH_BIN"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.542" endtime="20240115 13:45:57.654"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-6[4]-[1]-LH_ItemCondition"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.655" level="INFO">Clicking element '//*[@id="s0-1-17-6[4]-[1]-LH_ItemCondition"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.654" endtime="20240115 13:45:57.740"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-6[7]-5[@field[]]_1-_saact"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.741" level="INFO">Clicking element '//*[@id="s0-1-17-6[7]-5[@field[]]_1-_saact"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.740" endtime="20240115 13:45:57.832"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-6[7]-5[@field[]]_1-_saact"]/option[155]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.833" level="INFO">Clicking element '//*[@id="s0-1-17-6[7]-5[@field[]]_1-_saact"]/option[155]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.832" endtime="20240115 13:45:57.891"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-8[9]-1[2]-_ipg"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:57.891" level="INFO">Clicking element '//*[@id="s0-1-17-8[9]-1[2]-_ipg"]'.</msg>
+<status status="PASS" starttime="20240115 13:45:57.891" endtime="20240115 13:45:58.004"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="s0-1-17-8[9]-1[2]-_ipg"]/option[3]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:58.005" level="INFO">Clicking element '//*[@id="s0-1-17-8[9]-1[2]-_ipg"]/option[3]'.</msg>
+<status status="PASS" starttime="20240115 13:45:58.004" endtime="20240115 13:45:58.046"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//html/body/div[2]/div/main/form/div[2]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240115 13:45:58.047" level="INFO">Clicking element '//html/body/div[2]/div/main/form/div[2]/button'.</msg>
+<status status="PASS" starttime="20240115 13:45:58.047" endtime="20240115 13:45:58.640"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240115 13:46:01.641" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240115 13:45:58.640" endtime="20240115 13:46:01.641"/>
+</kw>
+<status status="PASS" starttime="20240115 13:45:56.595" endtime="20240115 13:46:01.641"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240115 13:46:06.642" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20240115 13:46:01.642" endtime="20240115 13:46:06.642"/>
+</kw>
+<kw name="Finish TestCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240115 13:46:06.644" endtime="20240115 13:46:09.219"/>
+</kw>
+<status status="PASS" starttime="20240115 13:46:06.643" endtime="20240115 13:46:09.219"/>
+</kw>
+<doc>This test case verifies advanced search</doc>
+<tag>Functional, search, advanced</tag>
+<status status="PASS" starttime="20240115 13:45:50.193" endtime="20240115 13:46:09.220"/>
+</test>
+<doc>Basic Search Functionality</doc>
+<status status="PASS" starttime="20240115 13:45:26.778" endtime="20240115 13:46:09.223"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Functional, search, advanced</stat>
+<stat pass="1" fail="0" skip="0">Functional, search, basic</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="VerifySearchFunctionality">VerifySearchFunctionality</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240115 13:45:27.059" level="ERROR">Error in file 'C:\Users\dominika.wojtulewicz\PycharmProjects\pythonProjectRobotFramework_1\Resources\PageObject\SearchResultsPage.robot' on line 13: Creating keyword 'Select product condition' failed: User keyword cannot be empty.</msg>
+<msg timestamp="20240115 13:45:27.059" level="ERROR">Error in file 'C:\Users\dominika.wojtulewicz\PycharmProjects\pythonProjectRobotFramework_1\Resources\PageObject\SearchResultsPage.robot' on line 16: Creating keyword 'Select delivery options' failed: User keyword cannot be empty.</msg>
+</errors>
+</robot>
